@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+<style>
+*{
+    background: #2c3136;
+}
+.nav-brand{
+    color: dodgerblue;
+    font-size: 20pt;
+    margin-left: 20px;
+    margin-right: 30px;
+}
+.fas{
+    margin-top: 10px;
+    font-size: 15pt;
+    vertical-align: bottom;
+    color: grey;
+}
+.nav-link{
+    margin-right: 15px;
+}
+.btn-primary{
+    background-color: dodgerblue;
+}
+.dropdown-item{
+    width: 75%;
+    margin-top: 10px;
+    display:inline-block;
+}
+</style>    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img class="nav-brand bg-dark" src="{% static 'login_app/twitter.png' %}" alt="twitter-logo">
+        
+        <div class="collapse navbar-collapse bg-dark" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto bg-dark">
+                <li class="bg-dark"> 
+                    <span class="fas fa-home bg-dark"></span>
+                </li>
+                <li class="nav-item active bg-dark">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="bg-dark">
+                    <span class="fas fa-hashtag bg-dark"></span>
+                </li>
+                <li class="nav-item active bg-dark">
+                    <a class="nav-link" href="/explore">Explore</a>
+                </li>
+                <li class="bg-dark">
+                    <span class="fas fa-user bg-dark"></span>
+                </li>
+                <li class="nav-item active bg-dark">
+                    <a class="nav-link" href="/profile">Profile</a>
+                </li>
+                <li class="bg-dark">
+                    <span class="fas fa-envelope bg-dark"></span>
+                </li>
+                <li class="nav-item active bg-dark">
+                    <a class="nav-link" href="/messages">Messages</a>
+                </li>
+                <li class="bg-dark">
+                    <span class="fas fa-bell bg-dark"></span>
+                </li>
+                <li class="nav-item active bg-dark">
+                    <a class="nav-link" href="/notifications">Notifications</a>
+                </li>
+                <li class="bg-dark">
+                    <span class="fas fa-cog bg-dark"></span>
+                </li>
+                <li class="nav-item active bg-dark">
+                    <a class="nav-link" href="/settings">Settings</a>
+                </li>
+                <li class="bg-dark">
+                    {% if request.session.user %}
+                    <a class="nav-link bg-dark" href="/logout">Sign Out</a>
+                    {% else %}
+                    <a class="nav-link bg-dark" href="/">Sign In</a>
+                    {% endif %}
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 bg-dark">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search FakeTwitter">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="profile-container">
+            
+        </div>
+    </div>    
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

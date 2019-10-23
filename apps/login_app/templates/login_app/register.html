@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+.btn-primary{
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+    <div class="navbar navbar-light bg-light">
+        <a class="navbar-link" href="/home">Home</a>
+        <a class="navbar-brand" href="/">FakeTwitter</a>
+        {% if request.session.user %}
+        <a class="navbar-link" href="/logout">Sign Out</a>
+        {% else %}
+        <a class="navbar-link" href="/">Sign In</a>
+        {% endif %}
+    </div>
+    <div class="container-fluid">
+        <h1 class="border-bottom">Register A New Account</h1>
+        <div class="form-container">
+            <form action="/register/new" method="POST">
+                {% csrf_token %}
+                <span>Username</span><br><input type="text" name="username"><br>
+                <span>Email</span><br><input type="email" name="email"><br>
+                <span>First Name</span><br><input type="text" name="first_name"><br>
+                <span>Last Name</span><br><input type="text" name="last_name"><br>
+                <span>Password</span><br><input type="text" name="password"><br>
+                <span>Re-type Password</span><br><input type="text" name="pw-confirm"><br>
+                <input type="submit" value="Register" class="btn btn-primary">
+            </form>
+            <ul>
+                {% for message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <p><a class="border-bottom" href="/">Already have an account? Log in here...</a></p>
+    </div>
+</body>
+</html>
